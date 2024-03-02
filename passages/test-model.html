@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷调查</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="test-model.css">
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html">首页</a>
+        <a href="../nav/write.html">文章</a>
+        <a href="../nav/boke.html">博客</a>
+        <a href="../nav/history.html">经历</a>
+    </nav>
+    <div class="survey-container">
+        <h2>问卷调查</h2>
+
+        <!-- 问卷内容 -->
+        <p>请您确实填写以下问题，帮助我们收集相关信息。</p>
+
+        <!-- 文段 -->
+        <div class="question">
+            <p>您对我们的产品有什么建议吗？</p>
+            <textarea id="feedback" rows="4" style="width:100%"></textarea>
+        </div>
+
+        <!-- 填空题 -->
+        <div class="question">
+            <p>您的年龄是：<input type="text" id="age"></p>
+        </div>
+
+        <!-- 选择题 -->
+        <div class="question">
+            <p>您通常使用哪种浏览器？</p>
+            <select id="browser">
+                <option value="chrome">Chrome</option>
+                <option value="firefox">Firefox</option>
+                <option value="safari">Safari</option>
+                <option value="edge">Edge</option>
+                <option value="other">其他</option>
+            </select>
+        </div>
+
+        <!-- 多选题 -->
+        <div class="question">
+            <p>您喜欢哪些类型的文章？（多选）</p>
+            <input type="checkbox" id="tech" name="interest"> 科技<br>
+            <input type="checkbox" id="sports" name="interest"> 体育<br>
+            <input type="checkbox" id="entertainment" name="interest"> 娱乐<br>
+            <input type="checkbox" id="politics" name="interest"> 政治<br>
+        </div>
+
+        <!-- 提交按钮 -->
+        <button id="submit-btn" class="submit-btn" onclick="submitSurvey()">提交问卷</button>
+    </div>
+    <!-- 评分显示区域 -->
+    <div id="score-display" class="score-display"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <script>
+        // JavaScript 评分系统逻辑和提交动画
+        function submitSurvey() {
+            // 防止按钮连续点击
+            document.getElementById('submit-btn').disabled = true;
+
+            let score = 0;
+            // 评分示例逻辑，可根据需要添加更多的规则和逻辑
+            // ...
+
+            // 显示评分结果
+            let scoreDisplay = document.getElementById('score-display');
+            scoreDisplay.innerText = "您的评分是：" + score;
+            scoreDisplay.style.display = 'block';
+            scoreDisplay.classList.add('animate__animated', 'animate__heartBeat');
+
+            // 添加提交按钮动画
+            document.getElementById('submit-btn').classList.add('animate__animated', 'animate__jello');
+            setTimeout(function () {
+                document.getElementById('submit-btn').disabled = false;
+                document.getElementById('submit-btn').classList.remove('animate__animated', 'animate__jello');
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
