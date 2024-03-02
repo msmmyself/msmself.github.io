@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的经历</title>
+    <style>
+        :root {
+            --timeline-color: #3498DB;
+            --timeline-background: white;
+            --circle-btn-size: 30px;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: var(--timeline-background);
+        }
+
+        nav {
+            background: #333;
+            color: white;
+            overflow: hidden;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 100px auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #BDBDBD;
+            top: 0;
+            bottom: 0;
+            left: 60px;
+            z-index: 1;
+        }
+
+        .timeline li {
+            position: relative;
+            margin: 80px 0;
+            padding-left: 80px;
+            list-style-type: none;
+            width: calc(100% - 80px);
+            min-height: 60px;
+        }
+
+        .timeline li:first-of-type {
+            margin-top: 150px;
+        }
+
+        .circle {
+            position: absolute;
+            z-index: 2;
+            left: 30px;
+            width: var(--circle-btn-size);
+            height: var(--circle-btn-size);
+            border-radius: 50%;
+            background: var(--timeline-color);
+            cursor: pointer;
+            transition: transform .3s ease-out;
+        }
+
+        .circle:hover {
+            transform: scale(1.2);
+            background-color: rgb(160, 210, 239);
+        }
+
+        .event {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
+            position: absolute;
+            z-index: 3;
+            left: 100px;
+            white-space: nowrap;
+            pointer-events: none;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            background-image: linear-gradient(var(--timeline-background), var(--timeline-background)),
+                linear-gradient(to right, #00ffe1, #3f5efb);
+            border-image-slice: 1;
+            transition: all 0.4s ease-in-out;
+        }
+
+
+        li:hover .event {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(-50%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        time {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: var(--timeline-color);
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        @media screen and (max-width: 900px) {
+            .timeline:before {
+                left: 20px;
+            }
+
+            .circle,
+            .event {
+                left: 20px;
+            }
+
+            .timeline li {
+                margin: 40px 0;
+                padding-left: 40px;
+                width: calc(100% - 40px);
+            }
+
+            .timeline li:first-of-type {
+                margin-top: 100px;
+            }
+
+            li:hover .event {
+                position: relative;
+                transform: scale(1) translateY(0);
+                left: 0;
+                top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html">首页</a>
+        <a href="write.html">文章</a>
+        <a href="boke.html">博客</a>
+        <a href="history.html">经历</a>
+    </nav>
+    <section class="timeline">
+        <ul>
+            <li>
+                <div class="circle"></div>
+                <div class="event">
+                    <time>2024年3月2日</time>
+                    <h2>网站问世</h2>
+                    <p>在我的精心设计下，这个网站诞生了</p>
+                </div>
+            </li>
+            <li>
+                <div class="circle"></div>
+                <div class="event">
+                    <time>2023年</time>
+                    <h2>转学</h2>
+                    <p>虽然转学了，但是还是很开心</p>
+                </div>
+            </li>
+            <li>
+                <div class="circle"></div>
+                <div class="event">
+                    <time>2011年10月11日</time>
+                    <h2>我出生了</h2>
+                    <p>感谢上帝让我来到这个世界，这是我来到地球的日子，让我遇见了不一样的色彩</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>

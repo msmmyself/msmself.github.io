@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>win11无法打开此电脑属性和控制面板，远程过程调用失败</title>
+  <link rel="stylesheet" href="./article_model.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html">首页</a>
+    <a href="../nav/write.html">文章</a>
+    <a href="../nav/boke.html">博客</a>
+    <a href="../nav/history.html">经历</a>
+  </nav>
+  <article>
+    <h1>win11无法打开此电脑属性和控制面板，远程过程调用失败的解决方法</h1>
+    <div class="content">
+      <!-- 在下面添加文章内容 -->
+      <blockquote>
+        <p>电脑出问题了，万能的方法是重装系统</p>
+      </blockquote>
+      <em>网站内容来自用户反馈</em>
+      <p>下面是我搜集的所有解决方案，请挨个尝试排除</p>
+      <h2>可能性1</h2>
+      <p>这个方法能解决大部分问题</p>
+      <p>右键任务栏中的windows图标，选择终端管理员</p>
+      <p>输入<span style=" font-weight: bolder; color: rgb(234, 115, 4);">mfc /scannow</span>，等待系统完成扫描与修复，重启电脑</p>
+      <h2>可能性2</h2>
+      <p>重新部署windows,或许能够成功？</p>
+      <p>右键任务栏中的windows图标，选择终端管理员</p>
+      <p>输入<span style=" font-weight: bolder; color: rgb(234, 115, 4);">DISM /Online /Cleanup-Image /RestoreHealth</span>，等待操作完成,重启电脑</p>
+      <h2>可能性3</h2>
+      如果你安装了火绒安全软件，不妨尝试卸载火绒安全软件，重启后如果能打开控制面板，说明是火绒的问题。重新安装火绒，并把资源管理器加入白名单即可。
+      <h2>可能性4</h1>
+      按住win + i,打开系统设置，搜索更新历史记录，卸载KB5034765的更新，重启电脑
+      <h2>可能性5</h2>
+      重装系统，具体方法根据机型等因素不同
+      <!-- 更多内容 -->
+    </div>
+  </article>
+</body>
+</html>

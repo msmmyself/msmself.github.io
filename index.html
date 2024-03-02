@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书墨的个人博客</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f8f8f8;
+    }
+
+    .background {
+      background-image: url('assets/background.jfif');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      width: 100%;
+      height: 700px;
+      opacity: 0;
+    }
+
+    .profile-picture {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-image: url('assets/head.jpeg');
+      background-size: cover;
+      border: 4px solid white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .profile-picture:hover {
+      cursor: pointer;
+    }
+
+    .line {
+      height: 4px;
+      background-color: white;
+      width: 70%;
+      position: absolute;
+      top: calc(50% + 130px);
+      left: 15%;
+      z-index: 0;
+      opacity: 0;
+    }
+
+    .name {
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      width: 100%;
+      top: calc(50% + 150px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #444;
+      opacity: 0;
+    }
+
+    .info-box {
+      background: #ffffff;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      padding: 40px;
+      margin: 60px auto 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 20px;
+      color: #333;
+      background-color: #fcfcfc;
+      border-left: 5px solid #3498db;
+      text-align: left;
+      opacity: 0;
+    }
+
+    nav {
+      background: #333;
+      color: white;
+      overflow: hidden;
+      padding: 10px;
+      opacity: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: #555;
+      transition: background-color 0.5s;
+    }
+
+    @media screen and (max-width:768px) {
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+      }
+
+      .name {
+        font-size: 24px;
+      }
+
+      .line {
+        width: 90%;
+        left: 5%;
+      }
+
+      .info-box {
+        width: auto;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="profile-picture"></div>
+  <div class="line"></div>
+  <div class="name" style="color:white">书墨</div>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="./nav/write.html">文章</a>
+    <a href="./nav/boke.html">博客</a>
+    <a href="./nav/history.html">经历</a>
+  </nav>
+
+  <div class="info-box">
+    <h1>个人介绍</h1>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">真实姓名:</d>就不告诉你</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">性别:</d>男</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">年龄:</d>12岁</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">生日:</d>2011年10月11日</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">星座:</d>天秤座</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">血型:</d>你猜</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">生活地区:</d>中国-四川-成都</p>
+    <p><d style="color:blue;font-family:Verdana, Geneva, Tahoma, sans-serif">学习:</d>就不告诉你</p>
+    <h1>公告</h1>
+    <p>1.这个网站纯由本人制作，如有雷同，自行分辨</p>
+    <p>2.我只是个学生，请多多包容</p>
+    <p>3.欢迎向我反映问题：邮箱1694519626</p>
+    <p>4.网站很粗糙，请谅解</p>
+  </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      fadeIn(document.querySelector('.background'), 0, 1, 1);
+      fadeIn(document.querySelector('.profile-picture'), 0, 1, 1.2);
+      fadeIn(document.querySelector('.name'), 0, 1, 1);
+      fadeIn(document.querySelector('.line'), 0, 1, 1);
+      fadeIn(document.querySelector('nav'), 0, 1, 1);
+      fadeIn(document.querySelector('.info-box'), 0, 1, 1);
+    });
+
+    function fadeIn(element, initial, final, duration) {
+      let opacity = initial;
+      element.style.opacity = opacity;
+
+      const interval = 10;
+      const step = (final - initial) / (duration * 1000 / interval);
+
+      const fading = setInterval(() => {
+        opacity += step;
+        if (opacity >= final) {
+          clearInterval(fading);
+          element.style.opacity = final;
+        } else {
+          element.style.opacity = opacity;
+        }
+      }, interval);
+    }
+
+    const profilePicture = document.querySelector('.profile-picture');
+    profilePicture.addEventListener('mouseover', () => hoverEffect(profilePicture, 1.1));
+    profilePicture.addEventListener('mouseout', () => hoverEffect(profilePicture, 1));
+
+    function hoverEffect(element, scale) {
+      element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      element.style.transition = 'transform 0.3s ease';
+    }
+  </script>
+
+</body>
+
+</html>
